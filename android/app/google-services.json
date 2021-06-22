@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "305029916053",
+    "project_id": "unisis-d8b01",
+    "storage_bucket": "unisis-d8b01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305029916053:android:6e28b3f89f728c2218829c",
+        "android_client_info": {
+          "package_name": "com.example.unisis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "305029916053-lfa49fb37b93ctm65iedj91jpc708je8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiKLTn3uiUyuHoVfma4UUJpLP0zu4FiI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305029916053-lfa49fb37b93ctm65iedj91jpc708je8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
