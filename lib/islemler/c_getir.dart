@@ -19,6 +19,10 @@ CollectionReference getirOgrencilerDT() {
   return fsDatabase.getirOgrencilerDT();
 }
 
+CollectionReference getirOgrentimGorevlilerDT() {
+  return fsDatabase.getirOgrentimGorevlilerDT();
+}
+
 CollectionReference getirNotlarDT() {
   return fsDatabase.getirNotlarDT();
 }

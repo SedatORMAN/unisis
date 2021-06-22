@@ -90,6 +90,31 @@ Future<void> silOgrenciler(String id) {
   return _db.collection('ogrenciler').doc(id).delete();
 }
 
+/*********************Ogrentim Görevliler********************/
+
+  Future<void> kaydetOgrentimGorevliler(OgrentimGorevliler ogretimGorevli) {
+    return _db
+        .collection('ogretimgorevli')
+        .doc(ogretimGorevli.og_ogrv_no.toString())
+        .set(ogretimGorevli.toMap());
+  }
+
+  Stream<List<OgrentimGorevliler>> getirOgrentimGorevliler() {
+    return _db.collection('ogretimgorevli').snapshots().map((snapshot) =>
+        snapshot
+            .docs
+            .map((document) => OgrentimGorevliler.fromFirestore(document.data()))
+            .toList());
+  }
+
+  CollectionReference getirOgrentimGorevlilerDT() {
+    return _db.collection('ogretimgorevli');
+  }
+
+  Future<void> silOgrentimGorevliler(String id) {
+    return _db.collection('ogretimgorevli').doc(id).delete();
+  }
+
 /*********************Notlar********************/
 Future<void> kaydetNotlar(Notlar not) {
   return _db

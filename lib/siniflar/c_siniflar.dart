@@ -57,7 +57,7 @@ class Kullanicilar {
 
 //************************Ogrenciler******************************/
 class Ogrenciler {
-  final int o_ogr_no;
+  final String o_ogr_no;
   final String o_adi;
   final String o_soyadi;
   final String o_fak_id;
@@ -91,6 +91,43 @@ class Ogrenciler {
         o_telefon = firestore['o_telefon'],
         o_eposta = firestore['o_eposta'],
         o_adres = firestore['o_adres'];
+}
+//************************Ogrenciler******************************/
+class OgrentimGorevliler {
+  final String og_ogrv_no;
+  final String og_adi;
+  final String og_soyadi;
+  final String og_fak_id;
+  final String og_bol_id;
+  final String og_telefon;
+  final String og_eposta;
+  final String og_adres;
+
+  OgrentimGorevliler(
+      {this.og_ogrv_no, this.og_adi,this.og_soyadi, this.og_fak_id, this.og_bol_id, this.og_telefon, this.og_eposta, this.og_adres});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'og_ogrv_no': og_ogrv_no,
+      'og_adi': og_adi,
+      'og_soyadi':og_soyadi,
+      'og_fak_id': og_fak_id,
+      'og_bol_id': og_bol_id,
+      'og_telefon': og_telefon,
+      'og_eposta': og_eposta,
+      'og_adres': og_adres
+    };
+  }
+
+  OgrentimGorevliler.fromFirestore(Map<String, dynamic> firestore)
+      : og_ogrv_no = firestore['og_ogrv_no'],
+        og_adi = firestore['o_adi'],
+        og_soyadi = firestore['og_soyadi'],
+        og_fak_id = firestore['og_fak_id'],
+        og_bol_id = firestore['og_bol_id'],
+        og_telefon = firestore['og_telefon'],
+        og_eposta = firestore['og_eposta'],
+        og_adres = firestore['og_adres'];
 }
 //*****************************Notlar*********************************/
 class Notlar {
