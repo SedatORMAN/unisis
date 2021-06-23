@@ -42,12 +42,26 @@ class _notgrafikPageState extends State<notgrafikPage> {
   List<BarChartGroupData> rawBarGroups;
   List<BarChartGroupData> showingBarGroups;
   int touchedGroupIndex = -1;
+  String ogrenciNo;
 
+  List<BarChartGroupData> getirNotVeri(String ogrNo) {
+    int intDersKodu =0;
+    double dblVize=0;
+    double dblFinal=0;
+    List<BarChartGroupData> itemNotlar = [];
+    getirNotlarDT().where('n_ogr_no',isEqualTo: ogrNo).orderBy('n_ders_no').snapshots().listen((event) {event.docs.forEach((element) {
+      if (element.get('n_ders_no')!='') intDersKodu=int.parse(element.get('n_ders_no')); else intDersKodu = 0;
+      if (element.get('n_vize')!='') dblVize=double.parse(element.get('n_vize')); else dblVize = 0;
+      if (element.get('n_final')!='') dblFinal=double.parse(element.get('n_final')); else dblFinal = 0;
+
+      itemNotlar.add(makeGroupData(intDersKodu,dblVize,dblFinal));
+    });});
+    return itemNotlar;
+  }
 
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -57,6 +71,7 @@ class _notgrafikPageState extends State<notgrafikPage> {
     //******************************************************************
     // Kullanici Kontrol ***********************************************
     //******************************************************************
+
     Kullanicilar listKullanici;
     listKullanici = ModalRoute.of(context).settings.arguments;
     if (listKullanici == null)
@@ -64,19 +79,11 @@ class _notgrafikPageState extends State<notgrafikPage> {
     //******************************************************************
     //******************************************************************
 
-    int intDersKodu =0;
-    double dblVize=0;
-    double dblFinal=0;
-    List<BarChartGroupData> itemNotlar = [];
-    getirNotlarDT().where('n_ogr_no',isEqualTo: listKullanici.kl_uni_no).orderBy('n_ders_no').snapshots().listen((event) {event.docs.forEach((element) {
-      if (element.get('n_ders_no')!='') intDersKodu=int.parse(element.get('n_ders_no')); else intDersKodu = 0;
-      if (element.get('n_vize')!='') dblVize=double.parse(element.get('n_vize')); else dblVize = 0;
-      if (element.get('n_final')!='') dblFinal=double.parse(element.get('n_final')); else dblFinal = 0;
-
-      itemNotlar.add(makeGroupData(intDersKodu,dblVize,dblFinal));
-    });});
-    rawBarGroups = itemNotlar;
-    showingBarGroups = rawBarGroups;
+    if (ogrenciNo==null) ogrenciNo = listKullanici.kl_uni_no;
+     if (rawBarGroups== null) {
+       rawBarGroups = getirNotVeri(ogrenciNo);
+       showingBarGroups = rawBarGroups;
+     }
 
     return Scaffold(
       appBar: AppBar(
@@ -206,8 +213,8 @@ class _notgrafikPageState extends State<notgrafikPage> {
                                 margin: 20,
                                 getTitles: (double value) {
                                   switch (value.toInt()) {
-                                  // case 0:
-                                  //  return 'Mn';
+                                   case 0:
+                                    return 'Mn';
                                     case 1:
                                       return 'Mobil\nProgramlama';
                                     case 2:

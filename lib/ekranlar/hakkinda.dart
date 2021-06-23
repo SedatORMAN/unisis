@@ -28,7 +28,7 @@ class _hakkindaPageState extends State<hakkindaPage> {
                   Container(
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      "     Bu uygulama Dr. Öğretim Üyesi Ahmet Cevahir ÇINAR tarafından yürütülen 3301456 kodlu MOBİL PROGRAMLAMA dersi kapsamında 203311096 numaralı Sedat ORMAN tarafından 30 Nisan 2021 günü yapılmıştır.",
+                      "     Bu uygulama Dr. Öğretim Üyesi Ahmet Cevahir ÇINAR tarafından yürütülen 3301456 kodlu MOBİL PROGRAMLAMA dersi kapsamında 203311096 numaralı Sedat ORMAN tarafından 25 Haziran 2021 günü yapılmıştır.",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 15,

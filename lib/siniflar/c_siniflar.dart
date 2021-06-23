@@ -121,7 +121,7 @@ class OgrentimGorevliler {
 
   OgrentimGorevliler.fromFirestore(Map<String, dynamic> firestore)
       : og_ogrv_no = firestore['og_ogrv_no'],
-        og_adi = firestore['o_adi'],
+        og_adi = firestore['og_adi'],
         og_soyadi = firestore['og_soyadi'],
         og_fak_id = firestore['og_fak_id'],
         og_bol_id = firestore['og_bol_id'],

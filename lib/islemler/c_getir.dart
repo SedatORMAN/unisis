@@ -1,7 +1,4 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/animation.dart';
-
 import '../siniflar/c_siniflar.dart';
 import 'package:unisis/islemler/dbfirestore.dart';
 

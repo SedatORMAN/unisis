@@ -71,8 +71,8 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
           child: Column(
             children: [
               StreamBuilder<QuerySnapshot>(
-                  stream: getirOgrencilerDT()
-                      .where('o_ogr_no', isEqualTo: listKullanici.kl_uni_no)
+                  stream: getirOgrentimGorevlilerDT()
+                      .where('og_ogrv_no', isEqualTo: listKullanici.kl_uni_no)
                       .snapshots(),
                   builder: (context, snapshot) {
                     List<DocumentSnapshot> listOfDocumentSnap = snapshot.data.docs;
@@ -82,16 +82,16 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                           Container(width: 20, child: Text("")),
                           Container(
                               width: 200,
-                              child: Image.asset("assets/foto/" + Ogrenciler
+                              child: Image.asset("assets/foto/" + OgrentimGorevliler
                                   .fromFirestore(listOfDocumentSnap[0].data())
-                                  .o_ogr_no.toString() + ".jpg",
+                                  .og_ogrv_no.toString() + ".jpg",
                                   width: 200, height: 200, fit: BoxFit.contain)),
                           Container(width: 20, child: Text("")),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'OgrenciNo : ',
+                                'Üniversite No : ',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -99,9 +99,9 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text('${Ogrenciler
+                              Text('${OgrentimGorevliler
                                   .fromFirestore(listOfDocumentSnap[0].data())
-                                  .o_ogr_no}',
+                                  .og_ogrv_no}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -122,11 +122,11 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                                 ),
                               ),
                               Text(
-                                '${Ogrenciler
+                                '${OgrentimGorevliler
                                     .fromFirestore(listOfDocumentSnap[0].data())
-                                    .o_adi} ${Ogrenciler
+                                    .og_adi} ${OgrentimGorevliler
                                     .fromFirestore(listOfDocumentSnap[0].data())
-                                    .o_soyadi}',
+                                    .og_soyadi}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -146,9 +146,9 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text('${Ogrenciler
+                              Text('${OgrentimGorevliler
                                   .fromFirestore(listOfDocumentSnap[0].data())
-                                  .o_fak_id}',
+                                  .og_fak_id}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -168,9 +168,9 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text('${Ogrenciler
+                              Text('${OgrentimGorevliler
                                   .fromFirestore(listOfDocumentSnap[0].data())
-                                  .o_bol_id}',
+                                  .og_bol_id}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -190,9 +190,9 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text('${Ogrenciler
+                              Text('${OgrentimGorevliler
                                   .fromFirestore(listOfDocumentSnap[0].data())
-                                  .o_telefon}',
+                                  .og_telefon}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -212,9 +212,9 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text('${Ogrenciler
+                              Text('${OgrentimGorevliler
                                   .fromFirestore(listOfDocumentSnap[0].data())
-                                  .o_eposta}',
+                                  .og_eposta}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -234,9 +234,9 @@ class _ogorevlibilgiPageState extends State<ogorevlibilgiPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text('${Ogrenciler
+                              Text('${OgrentimGorevliler
                                   .fromFirestore(listOfDocumentSnap[0].data())
-                                  .o_adres}',
+                                  .og_adres}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,

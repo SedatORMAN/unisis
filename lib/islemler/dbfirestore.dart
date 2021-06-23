@@ -94,13 +94,13 @@ Future<void> silOgrenciler(String id) {
 
   Future<void> kaydetOgrentimGorevliler(OgrentimGorevliler ogretimGorevli) {
     return _db
-        .collection('ogretimgorevli')
+        .collection('ogretimgorevlisi')
         .doc(ogretimGorevli.og_ogrv_no.toString())
         .set(ogretimGorevli.toMap());
   }
 
   Stream<List<OgrentimGorevliler>> getirOgrentimGorevliler() {
-    return _db.collection('ogretimgorevli').snapshots().map((snapshot) =>
+    return _db.collection('ogretimgorevlisi').snapshots().map((snapshot) =>
         snapshot
             .docs
             .map((document) => OgrentimGorevliler.fromFirestore(document.data()))
@@ -108,11 +108,11 @@ Future<void> silOgrenciler(String id) {
   }
 
   CollectionReference getirOgrentimGorevlilerDT() {
-    return _db.collection('ogretimgorevli');
+    return _db.collection('ogretimgorevlisi');
   }
 
   Future<void> silOgrentimGorevliler(String id) {
-    return _db.collection('ogretimgorevli').doc(id).delete();
+    return _db.collection('ogretimgorevlisi').doc(id).delete();
   }
 
 /*********************Notlar********************/
