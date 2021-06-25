@@ -160,7 +160,7 @@ class _mainPageState extends State<mainPage> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         // ignore: deprecated_member_use
-                        FlatButton(
+                       /* FlatButton(
                           onPressed: () {
                             Navigator.push(
                                 context,
@@ -180,7 +180,7 @@ class _mainPageState extends State<mainPage> {
                           color: Colors.blue[400],
                           shape: new RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(10)),
-                        ),
+                        ),*/
                       ],
                     ),
                   ),

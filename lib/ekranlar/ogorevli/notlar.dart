@@ -11,12 +11,12 @@ import 'package:unisis/siniflar/dbModel.dart';
 
 DbUtils utils = DbUtils();
 
-class deneme extends StatefulWidget {
+class notlarOPage extends StatefulWidget {
   @override
-  _denemeState createState() => _denemeState();
+  _notlarOPageState createState() => _notlarOPageState();
 }
 
-class _denemeState extends State<deneme> {
+class _notlarOPageState extends State<notlarOPage> {
   List<dbModel> kayitList = [];
   int gelenRenk = 1;
   List<Color> olusanRenk = [
@@ -44,10 +44,10 @@ class _denemeState extends State<deneme> {
     //******************************************************************
     // Kullanici Kontrol ***********************************************
     //******************************************************************
-    // Kullanicilar listKullanici;
-    // listKullanici = ModalRoute.of(context).settings.arguments;
-    // if (listKullanici == null)
-    //   Navigator.of(context).popUntil((route) => route.isFirst);
+     Kullanicilar listKullanici;
+     listKullanici = ModalRoute.of(context).settings.arguments;
+     if (listKullanici == null)
+       Navigator.of(context).popUntil((route) => route.isFirst);
     //******************************************************************
     //******************************************************************
 
@@ -57,9 +57,9 @@ class _denemeState extends State<deneme> {
         centerTitle: true,
         backgroundColor: olusanRenk[gelenRenk],
       ),
-      // drawer: listKullanici.kl_kul_tipi == 1
-      //     ? menuG(listKullanici)
-      //     : menuO(listKullanici),
+       drawer: listKullanici.kl_kul_tipi == 1
+           ? menuG(listKullanici)
+           : menuO(listKullanici),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +80,7 @@ class _denemeState extends State<deneme> {
                   ),
                 ),
                 Expanded(child: Text(" ")),
-         //      Text("${listKullanici.kl_kul_adi}(${listKullanici.kl_adi} ${listKullanici.kl_soyadi}) "),
+                      Text("${listKullanici.kl_kul_adi}(${listKullanici.kl_adi} ${listKullanici.kl_soyadi}) "),
               ],
             ),
           ),
@@ -333,10 +333,18 @@ class _denemeState extends State<deneme> {
                                         color: Colors.grey
                                             .withOpacity(0.5))),
                                 child: IconButton(onPressed: (){
-                                  Navigator.of(context).push(MaterialPageRoute(
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => notgirisPage(Notlar.fromFirestore(listOfDocumentSnap[index].data())),
+                                          settings: RouteSettings(arguments: listKullanici))
+                                  );
+                                 /* Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) =>
                                           notgirisPage(Notlar.fromFirestore(listOfDocumentSnap[index].data())))
-                                  );}, icon:Icon(Icons.add_to_photos_sharp)),
+                                  );*/
+                                  },
+                                    icon:Icon(Icons.add_to_photos_sharp)),
                               ),
                             ),
                           ],

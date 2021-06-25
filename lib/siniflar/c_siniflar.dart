@@ -131,19 +131,21 @@ class OgrentimGorevliler {
 }
 //*****************************Notlar*********************************/
 class Notlar {
-  final String n_ogr_no;
-  final String n_ders_no;
-  final String n_ders_adi;
-  final String n_vize;
-  final String n_final;
-  final String n_butunleme;
-  final String n_sonuc;
+  String id;
+   String n_ogr_no;
+   String n_ders_no;
+   String n_ders_adi;
+   String n_vize;
+   String n_final;
+   String n_butunleme;
+   String n_sonuc;
 
   Notlar(
-      {this.n_ogr_no, this.n_ders_no,this.n_ders_adi, this.n_vize, this.n_final, this.n_butunleme, this.n_sonuc});
+      {this.id,this.n_ogr_no, this.n_ders_no,this.n_ders_adi, this.n_vize, this.n_final, this.n_butunleme, this.n_sonuc});
 
   Map<String, dynamic> toMap() {
     return {
+      'id':id,
       'n_ogr_no': n_ogr_no,
       'n_ders_no': n_ders_no,
       'n_ders_adi':n_ders_adi,
@@ -155,7 +157,8 @@ class Notlar {
   }
 
   Notlar.fromFirestore(Map<String, dynamic> firestore)
-      : n_ogr_no = firestore['n_ogr_no'],
+      : id =  firestore['id'],
+        n_ogr_no = firestore['n_ogr_no'],
         n_ders_no = firestore['n_ders_no'],
         n_ders_adi = firestore['n_ders_adi'],
         n_vize = firestore['n_vize'],

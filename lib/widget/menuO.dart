@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:unisis/ekranlar/ayarlar.dart';
+import 'package:unisis/ekranlar/ogrenci/ayarlar.dart';
 import 'package:unisis/ekranlar/duyurular.dart';
-import 'package:unisis/ekranlar/notlar.dart';
-import 'package:unisis/ekranlar/sinavtarihleri.dart';
+import 'package:unisis/ekranlar/ogrenci/notlar.dart';
+import 'package:unisis/ekranlar/ogrenci/sinavtarihleri.dart';
 import 'package:unisis/siniflar/c_siniflar.dart';
-import 'package:unisis/ekranlar/ogrencibilgi.dart';
-import 'package:unisis/ekranlar/notgrafik.dart';
+import 'package:unisis/ekranlar/ogrenci/ogrencibilgi.dart';
+import 'package:unisis/ekranlar/ogrenci/notgrafik.dart';
 class menuO extends StatelessWidget {
 final Kullanicilar listKullanici;
    menuO(this.listKullanici);

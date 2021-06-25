@@ -117,9 +117,11 @@ Future<void> silOgrenciler(String id) {
 
 /*********************Notlar********************/
 Future<void> kaydetNotlar(Notlar not) {
+    print("kaydet");
+    print(not);
   return _db
       .collection('notlar')
-      .doc(not.n_ogr_no.toString())
+      .doc(not.id)
       .set(not.toMap());
 }
 

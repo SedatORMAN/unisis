@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:unisis/ekranlar/duyurular.dart';
 import 'package:unisis/siniflar/c_siniflar.dart';
-import 'package:unisis/ekranlar/ogorevlibilgi.dart';
+import 'package:unisis/ekranlar/ogorevli/ogorevlibilgi.dart';
+import 'package:unisis/ekranlar/ogorevli/notlar.dart';
 
 class menuG extends StatelessWidget {
 final Kullanicilar listKullanici;
@@ -71,7 +72,7 @@ final Kullanicilar listKullanici;
             onTap: () { Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => duyurularGPage(),
+                    builder: (context) => notlarOPage(),
                     settings: RouteSettings(arguments: listKullanici))
             );
             },

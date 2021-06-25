@@ -15,6 +15,11 @@ CollectionReference getirDuyurularDT() {
 CollectionReference getirOgrencilerDT() {
   return fsDatabase.getirOgrencilerDT();
 }
+String getirOgrenciAdiSoyadi(String ogrNo) {
+  String strAdiSoyadi="";
+  getirOgrencilerDT().where('o_ogr_no',isEqualTo:ogrNo).snapshots().listen((event) {event.docs.forEach((element) {strAdiSoyadi = element.get('o_adi') +" " + element.get('o_soyadi'); });});
+  return strAdiSoyadi;
+}
 
 CollectionReference getirOgrentimGorevlilerDT() {
   return fsDatabase.getirOgrentimGorevlilerDT();
@@ -22,6 +27,10 @@ CollectionReference getirOgrentimGorevlilerDT() {
 
 CollectionReference getirNotlarDT() {
   return fsDatabase.getirNotlarDT();
+}
+
+Future<void> kaydetNotlar(Notlar not) {
+  return fsDatabase.kaydetNotlar(not);
 }
 
 CollectionReference getirSinavlarDT() {
